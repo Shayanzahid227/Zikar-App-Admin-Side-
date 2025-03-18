@@ -32,7 +32,7 @@ class _DashBoardSideState extends State<DashBoardSide> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  height: 100.h,
+                  height: 110.h,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
