@@ -1,9 +1,10 @@
+import 'package:code_structure/core/constants/app_asset.dart';
 import 'package:code_structure/core/constants/auth_text_feild.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/core/model/activity_card.dart';
+
 import 'package:code_structure/ui/screens/analytics/analytics_screen_view_model.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -16,11 +17,71 @@ class AnalyticsScreen extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => AnalyticsScreenViewModel(),
       child: Consumer<AnalyticsScreenViewModel>(
-        builder: (context, model, child) => Scaffold(
-          body: Column(
-            children: [CustomHeaderWidget(), _divider(), _activityCards(model)],
-          ),
-        ),
+        builder: (context, model, child) {
+          if (model.activityCardList.isEmpty) {
+            return Center(child: CircularProgressIndicator());
+          }
+          return Scaffold(
+            body: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Column(
+                  children: [
+                    CustomHeaderWidget(),
+                    _divider(),
+                    _activityCard(model),
+                    // _activityCards(model)
+                    // SfCartesianChart(
+                    //   title: ChartTitle(text: 'User Growth Over Time'),
+                    //   legend: Legend(isVisible: true),
+                    //   tooltipBehavior: TooltipBehavior(enable: true),
+                    //   primaryXAxis: CategoryAxis(),
+                    //   primaryYAxis: NumericAxis(),
+                    //   series: <ChartSeries>[
+                    //     LineSeries<GraphData, String>(
+                    //       name: 'This Year',
+                    //       dataSource: model.lineGraphData,
+                    //       xValueMapper: (GraphData data, _) => data.month,
+                    //       yValueMapper: (GraphData data, _) => data.thisYear,
+                    //       color: Colors.purple,
+                    //       markerSettings: MarkerSettings(isVisible: true),
+                    //     ),
+                    //     LineSeries<GraphData, String>(
+                    //       name: 'Last Year',
+                    //       dataSource: model.lineGraphData,
+                    //       xValueMapper: (GraphData data, _) => data.month,
+                    //       yValueMapper: (GraphData data, _) => data.lastYear,
+                    //       color: Colors.blue,
+                    //       markerSettings: MarkerSettings(isVisible: true),
+                    //       dashArray: <double>[5, 5], // Dashed line
+                    //     ),
+                    //   ],
+                    // ),
+                    Container(
+                      height: 330.h,
+                      width: double.infinity,
+                      decoration: BoxDecoration(),
+                      child: Image.asset(
+                        AppAssets().lineChart,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    20.verticalSpace,
+                    Container(
+                      height: 330.h,
+                      width: double.infinity,
+                      decoration: BoxDecoration(),
+                      child: Image.asset(
+                        AppAssets().globe,
+                        fit: BoxFit.cover,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -37,40 +98,23 @@ class AnalyticsScreen extends StatelessWidget {
   ///
   ///     activity cards
   ///
-  Widget _activityCards(AnalyticsScreenViewModel model) {
-    return SizedBox(
-      height: 300.h,
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 4,
-          crossAxisSpacing: 15,
-          mainAxisSpacing: 15,
-          childAspectRatio: 10,
-        ),
-        itemCount: model.activityCardList.length,
-        scrollDirection: Axis.horizontal,
-        shrinkWrap: true,
-        itemBuilder: (BuildContext context, int index) {
-          return Padding(
-            padding: EdgeInsets.all(8),
-            child: CustomActivityWidget(
-              activityCardModelObject: model.activityCardList[index],
-            ),
-          );
-        },
+  GridView _activityCard(AnalyticsScreenViewModel model) {
+    return GridView.builder(
+      shrinkWrap: true,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 4,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 15,
+        childAspectRatio: 2,
       ),
-      // child: ListView.builder(
-      //   shrinkWrap: true,
-      //   controller: ScrollController(),
-      //   dragStartBehavior: DragStartBehavior.start,
-      //   scrollDirection: Axis.horizontal,
-      //   physics: AlwaysScrollableScrollPhysics(),
-      //   itemCount: model.activityCardList.length,
-      //   itemBuilder: (BuildContext context, int index) {
-      //     return CustomActivityWidget(
-      //         activityCardModelObject: model.activityCardList[index]);
-      //   },
-      // ),
+      itemCount: model.activityCardList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+          child: CustomActivityWidget(
+              activityCardModelObject: model.activityCardList[index]),
+        );
+      },
     );
   }
 }
@@ -84,7 +128,7 @@ class CustomHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
       child: TextFormField(
         decoration: authFieldDecoration.copyWith(
           prefixIcon: Icon(Icons.search, size: 20),
@@ -111,38 +155,42 @@ class CustomActivityWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         color: activityCardModelObject.color,
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            '${activityCardModelObject.title}',
-            style: style16B.copyWith(color: blackColor),
-          ),
-          10.verticalSpace,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                '${activityCardModelObject.count}',
-                style: style16B.copyWith(color: blackColor),
-              ),
-              Row(
-                children: [
-                  Text(
-                    '${activityCardModelObject.variation}',
-                    style: style16B.copyWith(color: blackColor),
-                  ),
-                  Icon(
-                    activityCardModelObject.icon,
-                    size: 15,
-                    color: blackColor,
-                  )
-                ],
-              ),
-            ],
-          ),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '${activityCardModelObject.title}',
+              style: style16B.copyWith(color: blackColor),
+            ),
+            10.verticalSpace,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '${activityCardModelObject.count}',
+                  style: style25B.copyWith(color: blackColor),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      '${activityCardModelObject.variation}',
+                      style: style16B.copyWith(color: blackColor),
+                    ),
+                    2.horizontalSpace,
+                    Icon(
+                      activityCardModelObject.icon,
+                      size: 15,
+                      color: blackColor,
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

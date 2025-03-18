@@ -23,25 +23,31 @@ class _DashBoardSideState extends State<DashBoardSide> {
       create: (context) => DashBoardViewModel(),
       child: Consumer<DashBoardViewModel>(
         builder: (context, model, child) => Scaffold(
+          backgroundColor: whiteColor,
           body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 50),
+            padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Container(
-                //   height: 230.h,
-                //   width: double.infinity,
-                //   decoration: BoxDecoration(
-                //     image: DecorationImage(
-                //         image: AssetImage(AppAssets().sideMenu),
-                //         fit: BoxFit.cover),
-                //   ),
-                // ),
-                // Text(
-                //   'dashboard',
-                //   style: style25.copyWith(color: blackColor, fontSize: 20.sp),
-                // ),
+                Container(
+                  height: 100.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(AppAssets().sideMenu),
+                        fit: BoxFit.contain),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  child: Text(
+                    'dashboard',
+                    style: style14.copyWith(color: blackColor, fontSize: 3.sp),
+                  ),
+                ),
+                10.verticalSpace,
                 ListView.builder(
                   shrinkWrap: true,
                   itemCount: model.sideMenuList.length,
@@ -52,6 +58,15 @@ class _DashBoardSideState extends State<DashBoardSide> {
                         sideMenuModelObject: model.sideMenuList[index]);
                   },
                 ),
+                10.verticalSpace,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  child: Text(
+                    'Pages',
+                    style: style14.copyWith(color: blackColor, fontSize: 3.sp),
+                  ),
+                ),
+                10.verticalSpace,
 
                 ///
                 ListView.builder(

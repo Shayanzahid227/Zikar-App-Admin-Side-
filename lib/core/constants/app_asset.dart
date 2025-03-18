@@ -6,6 +6,8 @@ class AppAssets {
   ///
   String splash = "$staticAssets/splash.png";
   String sideMenu = "$staticAssets/sideMenu.png";
+  String lineChart = "$staticAssets/lineChart.png";
+  String globe = "$staticAssets/globe.png";
 
   ///
   /// Dynamic Assets
