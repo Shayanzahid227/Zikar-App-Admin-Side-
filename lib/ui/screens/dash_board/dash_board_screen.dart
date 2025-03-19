@@ -1,6 +1,7 @@
 import 'package:code_structure/core/constants/app_asset.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
+import 'package:code_structure/ui/screens/analytics/analytics_screen.dart';
 import 'package:code_structure/ui/screens/dash_board/dash_board_view_model.dart';
 import 'package:code_structure/widgets/zikar/first_side_menu.dart';
 import 'package:flutter/material.dart';
