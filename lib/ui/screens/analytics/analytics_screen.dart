@@ -2,9 +2,11 @@ import 'package:code_structure/core/constants/app_asset.dart';
 import 'package:code_structure/core/constants/auth_text_feild.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
-import 'package:code_structure/core/model/activity_card.dart';
+import 'package:code_structure/core/model/analytics_activity_card.dart';
 
 import 'package:code_structure/ui/screens/analytics/analytics_screen_view_model.dart';
+import 'package:code_structure/ui/screens/zikar_reports/zikar_reports_view_model.dart';
+import 'package:code_structure/widgets/zikar/custom_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -16,8 +18,8 @@ class AnalyticsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => AnalyticsScreenViewModel(),
-      child: Consumer<AnalyticsScreenViewModel>(
-        builder: (context, model, child) {
+      child: Consumer2<AnalyticsScreenViewModel, ZikarReportsViewModel>(
+        builder: (context, model, Zikarmodel, child) {
           if (model.activityCardList.isEmpty) {
             return Center(child: CircularProgressIndicator());
           }
@@ -27,7 +29,9 @@ class AnalyticsScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Column(
                   children: [
-                    CustomHeaderWidget(),
+                    CustomHeader(
+                        dashBoardHeaderModelObject:
+                            Zikarmodel.dashboardHeader[0]),
                     _divider(),
                     _activityCard(model),
                     // _activityCards(model)
@@ -115,25 +119,6 @@ class AnalyticsScreen extends StatelessWidget {
               activityCardModelObject: model.activityCardList[index]),
         );
       },
-    );
-  }
-}
-
-///
-///     header
-///
-class CustomHeaderWidget extends StatelessWidget {
-  const CustomHeaderWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-      child: TextFormField(
-        decoration: authFieldDecoration.copyWith(
-          prefixIcon: Icon(Icons.search, size: 20),
-        ),
-      ),
     );
   }
 }

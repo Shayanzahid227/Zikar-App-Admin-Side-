@@ -1,5 +1,5 @@
 import 'package:code_structure/core/constants/colors.dart';
-import 'package:code_structure/core/model/activity_card.dart';
+import 'package:code_structure/core/model/analytics_activity_card.dart';
 
 import 'package:code_structure/core/others/base_view_model.dart';
 import 'package:flutter/material.dart';

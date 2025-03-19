@@ -7,14 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-class DashBoardSide extends StatefulWidget {
-  const DashBoardSide({super.key});
+class SideMenuScreen extends StatefulWidget {
+  const SideMenuScreen({super.key});
 
   @override
-  State<DashBoardSide> createState() => _DashBoardSideState();
+  State<SideMenuScreen> createState() => _SideMenuScreenState();
 }
 
-class _DashBoardSideState extends State<DashBoardSide> {
+class _SideMenuScreenState extends State<SideMenuScreen> {
   int selectedIndex = 0;
 
   @override

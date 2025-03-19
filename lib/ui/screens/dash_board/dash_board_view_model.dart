@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 class DashBoardViewModel extends BaseViewModel {
   List<SideMenuModel> sideMenuList = [
-    SideMenuModel(icon: Icons.person_2, title: 'Profile'),
-    SideMenuModel(icon: Icons.home, title: 'Home'),
-    SideMenuModel(icon: Icons.leaderboard, title: 'Progress'),
+    SideMenuModel(icon: Icons.analytics_outlined, title: 'Analytics'),
+    SideMenuModel(icon: Icons.folder, title: 'Zikar Reports'),
+    SideMenuModel(icon: Icons.card_travel, title: 'eCommerce'),
   ];
 }

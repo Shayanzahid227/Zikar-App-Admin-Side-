@@ -6,6 +6,7 @@ class ActivityCardModel {
   final String? variation;
   final IconData? icon;
   final Color? color;
+  // final bool isIncrease;
   ActivityCardModel(
       {required this.count,
       required this.icon,
