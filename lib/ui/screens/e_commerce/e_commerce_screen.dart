@@ -108,6 +108,7 @@ class ECommerceScreen extends StatelessWidget {
                             )),
                   ),
                 ),
+
                 // SizedBox(
                 //   height: 70.h,
                 //   child: ListView.builder(
@@ -144,11 +145,10 @@ class CustomECommerceActivityCard extends StatelessWidget {
     BuildContext context,
   ) {
     return Container(
-      width: 200.w,
-      padding: EdgeInsets.all(16.w),
+      padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: pinkColor,
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(8.r),
         boxShadow: [
           BoxShadow(
             color: Colors.black12,

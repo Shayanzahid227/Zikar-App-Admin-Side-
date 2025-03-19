@@ -41,3 +41,5 @@ const Color sideMenuColor = Color.fromRGBO(24, 25, 36, 1.0);
 const Color lightPurpleColor = Color(0xffedeefc);
 const Color lightBlueColor = Color(0xffe6f1fd);
 const Color darkBlueColor = Color(0xff294566);
+const Color primaryColor = Color(0xff276926);
+const Color dashboardContainerColor = Color(0xffD2DED4);

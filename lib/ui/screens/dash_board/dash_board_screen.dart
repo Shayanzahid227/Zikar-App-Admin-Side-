@@ -24,8 +24,7 @@ class _SideMenuScreenState extends State<SideMenuScreen> {
       child: Consumer<DashBoardViewModel>(
         builder: (context, model, child) => Scaffold(
           backgroundColor: whiteColor,
-          body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+          body: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -40,100 +39,442 @@ class _SideMenuScreenState extends State<SideMenuScreen> {
                         fit: BoxFit.contain),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                  child: Text(
-                    'dashboard',
-                    style: style14.copyWith(color: blackColor, fontSize: 3.sp),
+                Text(
+                  'dashboard',
+                  style: style14.copyWith(color: blackColor, fontSize: 5.sp),
+                ),
+                10.verticalSpace,
+                Container(
+                  //  width: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: model.selectedScreen == 0
+                        ? dashboardContainerColor
+                        : whiteColor,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                    child: ListTile(
+                      onTap: () {
+                        model.changeScreen(0);
+                      },
+                      title: Image.asset(
+                        AppAssets().analyticsIcon,
+                        scale: 3,
+                        color: model.selectedScreen == 0
+                            ? primaryColor
+                            : blackColor,
+                      ),
+                      trailing: Text(
+                        'Users',
+                        style: style14.copyWith(
+                            color: model.selectedScreen == 0
+                                ? primaryColor
+                                : greyColor),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  //  width: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: model.selectedScreen == 1
+                        ? dashboardContainerColor
+                        : whiteColor,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 45.0),
+                    child: ListTile(
+                      onTap: () {
+                        model.changeScreen(1);
+                      },
+                      title: Image.asset(
+                        AppAssets().zikarReportsIcon,
+                        scale: 3,
+                        color: model.selectedScreen == 1
+                            ? primaryColor
+                            : blackColor,
+                      ),
+                      trailing: Text(
+                        'Users',
+                        style: style14.copyWith(
+                            color: model.selectedScreen == 1
+                                ? primaryColor
+                                : greyColor),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  //  width: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: model.selectedScreen == 2
+                        ? dashboardContainerColor
+                        : whiteColor,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                    child: ListTile(
+                      onTap: () {
+                        model.changeScreen(2);
+                      },
+                      title: Image.asset(
+                        AppAssets().analyticsIcon,
+                        scale: 3,
+                        color: model.selectedScreen == 2
+                            ? primaryColor
+                            : blackColor,
+                      ),
+                      trailing: Text(
+                        'Users',
+                        style: style14.copyWith(
+                            color: model.selectedScreen == 2
+                                ? primaryColor
+                                : greyColor),
+                      ),
+                    ),
                   ),
                 ),
                 10.verticalSpace,
-                ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: model.sideMenuList.length,
-                  scrollDirection: Axis.vertical,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (BuildContext context, int index) {
-                    return CustomSideMenuItemsWidget(
-                        sideMenuModelObject: model.sideMenuList[index]);
-                  },
+                //************************************  pages    **************************************************************************** */
+                Text(
+                  'Pages',
+                  style: style14.copyWith(color: blackColor, fontSize: 5.sp),
                 ),
                 10.verticalSpace,
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                  child: Text(
-                    'Pages',
-                    style: style14.copyWith(color: blackColor, fontSize: 3.sp),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: model.selectedScreen == 4
+                          ? dashboardContainerColor
+                          : whiteColor),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 45.0),
+                    child: ListTile(
+                      onTap: () {
+                        model.changeScreen(4);
+                      },
+                      leading: Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        size: 15,
+                        color: model.selectedScreen == 4
+                            ? primaryColor
+                            : blackColor,
+                      ),
+                      title: Image.asset(
+                        AppAssets().zikarReportsIcon,
+                        scale: 4,
+                        color: model.selectedScreen == 4
+                            ? primaryColor
+                            : blackColor,
+                      ),
+                      trailing: Text(
+                        'Users',
+                        style: style14.copyWith(
+                            color: model.selectedScreen == 4
+                                ? primaryColor
+                                : greyColor),
+                      ),
+                    ),
                   ),
                 ),
-                10.verticalSpace,
-
-                ///
-                ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: model.sideMenuList.length,
-                  scrollDirection: Axis.vertical,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (BuildContext context, int index) {
-                    return CustomSideMenuItemsWidget(
-                        sideMenuModelObject: model.sideMenuList[index]);
-                  },
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: model.selectedScreen == 5
+                          ? dashboardContainerColor
+                          : whiteColor),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 45.0),
+                    child: ListTile(
+                      onTap: () {
+                        model.changeScreen(5);
+                      },
+                      leading: Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        size: 15,
+                        color: model.selectedScreen == 5
+                            ? primaryColor
+                            : blackColor,
+                      ),
+                      title: Image.asset(
+                        AppAssets().zikarReportsIcon,
+                        scale: 4,
+                        color: model.selectedScreen == 5
+                            ? primaryColor
+                            : blackColor,
+                      ),
+                      trailing: Text(
+                        'Users',
+                        style: style14.copyWith(
+                            color: model.selectedScreen == 5
+                                ? primaryColor
+                                : greyColor),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: model.selectedScreen == 6
+                          ? dashboardContainerColor
+                          : whiteColor),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 45.0),
+                    child: ListTile(
+                      onTap: () {
+                        model.changeScreen(6);
+                      },
+                      leading: Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        size: 15,
+                        color: model.selectedScreen == 6
+                            ? primaryColor
+                            : blackColor,
+                      ),
+                      title: Image.asset(
+                        AppAssets().zikarReportsIcon,
+                        scale: 4,
+                        color: model.selectedScreen == 6
+                            ? primaryColor
+                            : blackColor,
+                      ),
+                      trailing: Text(
+                        'Users',
+                        style: style14.copyWith(
+                            color: model.selectedScreen == 6
+                                ? primaryColor
+                                : greyColor),
+                      ),
+                    ),
+                  ),
+                ),
+                //***************************************************   pages end  ******************************************************************************* */
+                Container(
+                  //  width: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: model.selectedScreen == 7
+                        ? dashboardContainerColor
+                        : whiteColor,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                    child: ListTile(
+                      onTap: () {
+                        model.changeScreen(7);
+                      },
+                      title: Image.asset(
+                        AppAssets().analyticsIcon,
+                        scale: 3,
+                        color: model.selectedScreen == 7
+                            ? primaryColor
+                            : blackColor,
+                      ),
+                      trailing: Text(
+                        'Users',
+                        style: style14.copyWith(
+                            color: model.selectedScreen == 7
+                                ? primaryColor
+                                : greyColor),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  //  width: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: model.selectedScreen == 8
+                        ? dashboardContainerColor
+                        : whiteColor,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                    child: ListTile(
+                      onTap: () {
+                        model.changeScreen(8);
+                      },
+                      title: Image.asset(
+                        AppAssets().analyticsIcon,
+                        scale: 3,
+                        color: model.selectedScreen == 8
+                            ? primaryColor
+                            : blackColor,
+                      ),
+                      trailing: Text(
+                        'Users',
+                        style: style14.copyWith(
+                            color: model.selectedScreen == 8
+                                ? primaryColor
+                                : greyColor),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  //  width: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: model.selectedScreen == 9
+                        ? dashboardContainerColor
+                        : whiteColor,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                    child: ListTile(
+                      onTap: () {
+                        model.changeScreen(9);
+                      },
+                      title: Image.asset(
+                        AppAssets().analyticsIcon,
+                        scale: 3,
+                        color: model.selectedScreen == 9
+                            ? primaryColor
+                            : blackColor,
+                      ),
+                      trailing: Text(
+                        'Users',
+                        style: style14.copyWith(
+                            color: model.selectedScreen == 9
+                                ? primaryColor
+                                : greyColor),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  //  width: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: model.selectedScreen == 10
+                        ? dashboardContainerColor
+                        : whiteColor,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                    child: ListTile(
+                      onTap: () {
+                        model.changeScreen(10);
+                      },
+                      title: Image.asset(
+                        AppAssets().analyticsIcon,
+                        scale: 3,
+                        color: model.selectedScreen == 10
+                            ? primaryColor
+                            : blackColor,
+                      ),
+                      trailing: Text(
+                        'Users',
+                        style: style14.copyWith(
+                            color: model.selectedScreen == 10
+                                ? primaryColor
+                                : greyColor),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  //  width: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: model.selectedScreen == 11
+                        ? dashboardContainerColor
+                        : whiteColor,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                    child: ListTile(
+                      onTap: () {
+                        model.changeScreen(11);
+                      },
+                      title: Image.asset(
+                        AppAssets().analyticsIcon,
+                        scale: 3,
+                        color: model.selectedScreen == 11
+                            ? primaryColor
+                            : blackColor,
+                      ),
+                      trailing: Text(
+                        'Users',
+                        style: style14.copyWith(
+                            color: model.selectedScreen == 11
+                                ? primaryColor
+                                : greyColor),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  //  width: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: model.selectedScreen == 12
+                        ? dashboardContainerColor
+                        : whiteColor,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                    child: ListTile(
+                      onTap: () {
+                        model.changeScreen(12);
+                      },
+                      title: Image.asset(
+                        AppAssets().analyticsIcon,
+                        scale: 3,
+                        color: model.selectedScreen == 12
+                            ? primaryColor
+                            : blackColor,
+                      ),
+                      trailing: Text(
+                        'Users',
+                        style: style14.copyWith(
+                            color: model.selectedScreen == 12
+                                ? primaryColor
+                                : greyColor),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  //  width: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: model.selectedScreen == 13
+                        ? dashboardContainerColor
+                        : whiteColor,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                    child: ListTile(
+                      onTap: () {
+                        model.changeScreen(13);
+                      },
+                      title: Image.asset(
+                        AppAssets().analyticsIcon,
+                        scale: 3,
+                        color: model.selectedScreen == 13
+                            ? primaryColor
+                            : blackColor,
+                      ),
+                      trailing: Text(
+                        'Users',
+                        style: style14.copyWith(
+                            color: model.selectedScreen == 13
+                                ? primaryColor
+                                : greyColor),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
-          // body: Container(
-          //   decoration: BoxDecoration(),
-          //   child: ListView.builder(
-          //     itemCount: model.sideMenuList.length,
-          //     itemBuilder: (BuildContext context, int index) {
-          //       return CustomSideMenuItemsWidget(
-          //           sideMenuModelObject: model.sideMenuList[index]);
-          //     },
-          //   ),
-          // ),
         ),
       ),
     );
   }
-
-  // Widget buildSideMenuEntry(DashBoardViewModel model, int index) {
-  //   final isSelected = selectedIndex == index;
-  //   return GestureDetector(
-  //     onTap: () {
-  //       setState(() {
-  //         selectedIndex = index;
-  //       });
-  //     },
-  //     child: Container(
-  //       decoration: BoxDecoration(
-  //         color: isSelected ? whiteColor : transparentColor,
-  //         borderRadius: BorderRadius.circular(8.r),
-  //       ),
-  //       child: Row(
-  //         children: [
-  //           Padding(
-  //             padding: const EdgeInsets.symmetric(
-  //               vertical: 7.0,
-  //               horizontal: 13.0,
-  //             ),
-  //             child: Icon(
-  //               model.sideMenuList[index].icon,
-  //               size: 30,
-  //               color: isSelected ? blackColor : Colors.grey,
-  //             ),
-  //           ),
-  //           30.verticalSpace,
-  //           Text(
-  //             model.sideMenuList[index].title,
-  //             style: style16B.copyWith(
-  //               fontWeight: isSelected ? FontWeight.w700 : FontWeight.normal,
-  //               color: isSelected ? blackColor : Colors.grey,
-  //             ),
-  //           ),
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
 }
