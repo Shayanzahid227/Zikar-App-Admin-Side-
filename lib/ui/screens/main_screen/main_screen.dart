@@ -3,7 +3,6 @@ import 'package:code_structure/ui/screens/analytics/analytics_screen.dart';
 import 'package:code_structure/ui/screens/dash_board/dash_board_screen.dart';
 import 'package:code_structure/ui/screens/dash_board/dash_board_view_model.dart';
 import 'package:code_structure/ui/screens/e_commerce/e_commerce_screen.dart';
-import 'package:code_structure/ui/screens/main_screen/main_screen_view_model.dart';
 import 'package:code_structure/ui/screens/zikar_reports/zikar_report_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,9 +13,10 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => MainScreenViewModel(),
-      child: Consumer<MainScreenViewModel>(
-        builder: (context, model, child) => Scaffold(
+      create: (context) => DashBoardViewModel(),
+      child: Consumer<DashBoardViewModel>(builder: (context, model, child) {
+        print('Selected screen: ${model.selectedScreen}');
+        return Scaffold(
           body: Row(
             children: [
               Expanded(
@@ -34,12 +34,12 @@ class MainScreen extends StatelessWidget {
                         ? ZikarReportScreen()
                         : model.selectedScreen == 2
                             ? ECommerceScreen()
-                            : AnalyticsScreen(),
+                            : ECommerceScreen(),
               ),
             ],
           ),
-        ),
-      ),
+        );
+      }),
     );
   }
 }

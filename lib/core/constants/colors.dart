@@ -42,4 +42,7 @@ const Color lightPurpleColor = Color(0xffedeefc);
 const Color lightBlueColor = Color(0xffe6f1fd);
 const Color darkBlueColor = Color(0xff294566);
 const Color primaryColor = Color(0xff276926);
+const Color secondaryColor = Color(0xff06A561);
+const Color thirdColor = Color(0xffECF2FF);
+const Color fourthColor = Color(0xff1E5EFF);
 const Color dashboardContainerColor = Color(0xffD2DED4);

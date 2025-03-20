@@ -57,6 +57,7 @@ class _SideMenuScreenState extends State<SideMenuScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 50.0),
                     child: ListTile(
                       onTap: () {
+                        print('Analytics menu tapped');
                         model.changeScreen(0);
                       },
                       title: Image.asset(
@@ -119,6 +120,7 @@ class _SideMenuScreenState extends State<SideMenuScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 50.0),
                     child: ListTile(
                       onTap: () {
+                        print('Analytics menu tapped');
                         model.changeScreen(2);
                       },
                       title: Image.asset(
@@ -155,6 +157,7 @@ class _SideMenuScreenState extends State<SideMenuScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 45.0),
                     child: ListTile(
                       onTap: () {
+                        print('Analytics menu tapped');
                         model.changeScreen(4);
                       },
                       leading: Icon(
@@ -191,6 +194,7 @@ class _SideMenuScreenState extends State<SideMenuScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 45.0),
                     child: ListTile(
                       onTap: () {
+                        print('Analytics menu tapped');
                         model.changeScreen(5);
                       },
                       leading: Icon(
@@ -227,6 +231,7 @@ class _SideMenuScreenState extends State<SideMenuScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 45.0),
                     child: ListTile(
                       onTap: () {
+                        print('Analytics menu tapped');
                         model.changeScreen(6);
                       },
                       leading: Icon(
@@ -266,6 +271,7 @@ class _SideMenuScreenState extends State<SideMenuScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 50.0),
                     child: ListTile(
                       onTap: () {
+                        print('Analytics menu tapped');
                         model.changeScreen(7);
                       },
                       title: Image.asset(
@@ -297,6 +303,7 @@ class _SideMenuScreenState extends State<SideMenuScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 50.0),
                     child: ListTile(
                       onTap: () {
+                        print('Analytics menu tapped');
                         model.changeScreen(8);
                       },
                       title: Image.asset(
@@ -328,6 +335,7 @@ class _SideMenuScreenState extends State<SideMenuScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 50.0),
                     child: ListTile(
                       onTap: () {
+                        print('Analytics menu tapped');
                         model.changeScreen(9);
                       },
                       title: Image.asset(
@@ -359,6 +367,7 @@ class _SideMenuScreenState extends State<SideMenuScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 50.0),
                     child: ListTile(
                       onTap: () {
+                        print('Analytics menu tapped');
                         model.changeScreen(10);
                       },
                       title: Image.asset(
@@ -390,6 +399,7 @@ class _SideMenuScreenState extends State<SideMenuScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 50.0),
                     child: ListTile(
                       onTap: () {
+                        print('Analytics menu tapped');
                         model.changeScreen(11);
                       },
                       title: Image.asset(
@@ -421,6 +431,7 @@ class _SideMenuScreenState extends State<SideMenuScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 50.0),
                     child: ListTile(
                       onTap: () {
+                        print('Analytics menu tapped');
                         model.changeScreen(12);
                       },
                       title: Image.asset(
@@ -452,6 +463,7 @@ class _SideMenuScreenState extends State<SideMenuScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 50.0),
                     child: ListTile(
                       onTap: () {
+                        print('Analytics menu tapped');
                         model.changeScreen(13);
                       },
                       title: Image.asset(

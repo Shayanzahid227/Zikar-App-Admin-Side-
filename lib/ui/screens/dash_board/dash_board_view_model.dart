@@ -10,12 +10,13 @@ class DashBoardViewModel extends BaseViewModel {
   }
   init() async {
     setState(ViewState.busy);
-    //await authService.getDashboardData();
+
     setState(ViewState.idle);
     notifyListeners();
   }
 
-  changeScreen(int newScreen) {
+  void changeScreen(int newScreen) {
+    print('Changing screen to: $newScreen');
     selectedScreen = newScreen;
     notifyListeners();
   }
