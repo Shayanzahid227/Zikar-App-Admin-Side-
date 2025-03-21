@@ -14,32 +14,32 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => DashBoardViewModel(),
-      child: Consumer<DashBoardViewModel>(builder: (context, model, child) {
-        print('Selected screen: ${model.selectedScreen}');
-        return Scaffold(
-          body: Row(
-            children: [
-              Expanded(
-                flex: 1,
-                child: Container(
-                  color: blackColor,
-                  child: SideMenuScreen(),
+      child: Consumer<DashBoardViewModel>(
+        builder: (context, model, child) {
+          print('Selected screen: ${model.selectedScreen}');
+          return Scaffold(
+            body: Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Container(color: blackColor, child: SideMenuScreen()),
                 ),
-              ),
-              Expanded(
-                flex: 7,
-                child: model.selectedScreen == 0
-                    ? AnalyticsScreen()
-                    : model.selectedScreen == 1
-                        ? ZikarReportScreen()
-                        : model.selectedScreen == 2
-                            ? ECommerceScreen()
-                            : ECommerceScreen(),
-              ),
-            ],
-          ),
-        );
-      }),
+                Expanded(
+                  flex: 7,
+                  child:
+                      model.selectedScreen == 0
+                          ? AnalyticsScreen()
+                          : model.selectedScreen == 1
+                          ? ZikarReportScreen()
+                          : model.selectedScreen == 2
+                          ? ECommerceScreen()
+                          : AnalyticsScreen(),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }
