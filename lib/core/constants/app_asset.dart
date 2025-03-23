@@ -28,4 +28,18 @@ class AppAssets {
   String zikarReportsIcon = "$iconsAssets/zikarReportsIcon.png";
   String notificationIcon = "$iconsAssets/notificationIcon.png";
   String themeIcon = "$iconsAssets/themeIcon.png";
+
+  ///
+  /// Pages Icons
+  ///
+  String user = "$iconsAssets/user.png";
+  String eCommerce = "$iconsAssets/eCommerce.png";
+  String community = "$iconsAssets/community.png";
+  String azkar = "$iconsAssets/azkar.png";
+  String annnouncement = "$iconsAssets/announcement.png";
+  String subDomain = "$iconsAssets/subDomain.png";
+  String request = "$iconsAssets/request.png";
+  String feedBack = "$iconsAssets/feedBack.png";
+  String subscription = "$iconsAssets/subscription.png";
+  String message = "$iconsAssets/message.png";
 }

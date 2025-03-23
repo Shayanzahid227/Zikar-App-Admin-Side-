@@ -5,26 +5,28 @@ const Color greyColor = Colors.grey;
 const Color textfiledBorderColor = Colors.greenAccent;
 const Color blueColor = Color(0xff3A63ED);
 
+const Color backgroundColor = Color(0xffF7F8FA);
+
 ///
 ///    buttons(not login or signup)
 ///
-const Color PrimarybuttonColor = Colors.grey;
+const Color primarybuttonColor = Colors.grey;
 const Color pinkColor = Colors.pink;
-const Color SecondarybuttonColor = whiteColor;
+const Color secondarybuttonColor = whiteColor;
 
 ///
 ///      login and signup button
 ///
 const Color darkBrownColor = Color(0xfff2d201c);
-const Color PrimaryLoginButtonColor = darkBrownColor;
+const Color primaryLoginButtonColor = darkBrownColor;
 
 ///
-const Color SeccodaryLoginButtonColor = whiteColor;
+const Color seccodaryLoginButtonColor = whiteColor;
 
 ///    confirm buttons in OTP and Forget scren
 ///
 const Color primaryConfirmButtonColor = blackColor;
-const Color SecondryConfirmButton = greyColor;
+const Color secondryConfirmButton = greyColor;
 const Color transparentColor = Colors.transparent;
 const Color borderColor = Color(0xff49526E);
 const Color whiteColor = Colors.white;

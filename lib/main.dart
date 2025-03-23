@@ -1,7 +1,7 @@
-import 'package:code_structure/ui/screens/analytics/analytics_screen_view_model.dart';
+import 'package:code_structure/core/constants/colors.dart';
+import 'package:code_structure/ui/screens/dashbored/analytics/analytics_screen_view_model.dart';
 import 'package:code_structure/ui/screens/main_screen/main_screen.dart';
-import 'package:code_structure/ui/screens/zikar_reports/zikar_report_screen.dart';
-import 'package:code_structure/ui/screens/zikar_reports/zikar_reports_view_model.dart';
+import 'package:code_structure/ui/screens/dashbored/zikar_reports/zikar_reports_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -22,14 +22,13 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(
             create: (context) => AnalyticsScreenViewModel(),
           ),
-          ChangeNotifierProvider(
-            create: (context) => ZikarReportsViewModel(),
-          ),
+          ChangeNotifierProvider(create: (context) => ZikarReportsViewModel()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
+            scaffoldBackgroundColor: backgroundColor,
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           ),
           home: MainScreen(),
